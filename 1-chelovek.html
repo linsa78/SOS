@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Человек — Человек и общество</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content-page">
+        <a href="index.html" class="back-btn">← На главную</a>
+        <h1>1. Человек как результат эволюции</h1>
+        
+        <h3>1.1. Определение</h3>
+        <p><strong>Человек</strong> — биосоциальное существо, обладающее даром мышления и речи, способностью создавать орудия труда.</p>
+
+        <div class="constitution-block">
+            <h4>Статья 2 Конституции РФ</h4>
+            <p>Человек, его права и свободы являются высшей ценностью. Признание, соблюдение и защита прав и свобод человека и гражданина — обязанность государства.</p>
+        </div>
+
+        <h3>1.2. Биологическое и социальное</h3>
+        <p><strong>Биологическое:</strong> анатомия, физиология, инстинкты, потребности.</p>
+        <p><strong>Социальное:</strong> мышление, речь, мораль, культура, творчество.</p>
+
+        <h3>1.3. Индивид, индивидуальность, личность</h3>
+        <p><strong>Индивид</strong> — единичный представитель рода.</p>
+        <p><strong>Индивидуальность</strong> — неповторимое сочетание качеств.</p>
+        <p><strong>Личность</strong> — субъект социальных отношений.</p>
+
+        <button id="start-flashcards" class="flashcard-btn">🧠 Учить карточками</button>
+    </div>
+
+    <div id="flashcard-modal" class="modal">
+        <div class="flashcard">
+            <span class="close-modal">&times;</span>
+            <div id="fc-question" class="question"></div>
+            <div id="fc-answer" class="answer"></div>
+            <button id="fc-reveal" class="btn-reveal">Показать ответ</button>
+            <button id="fc-next" class="btn-next">Следующая →</button>
+        </div>
+    </div>
+
+    <script>
+        const cards = [
+            { q: "Что такое человек?", a: "Биосоциальное существо, обладающее мышлением, речью, способностью создавать орудия труда." },
+            { q: "Чем индивид отличается от личности?", a: "Индивид — биологический представитель. Личность — субъект социальных отношений." },
+            { q: "Статья 2 Конституции РФ?", a: "Человек, его права и свободы являются высшей ценностью." },
+            { q: "Назови биологическое в человеке", a: "Анатомия, физиология, инстинкты." }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('start-flashcards');
+            const modal = document.getElementById('flashcard-modal');
+            const qText = document.getElementById('fc-question');
+            const aText = document.getElementById('fc-answer');
+            const btnReveal = document.getElementById('fc-reveal');
+            const btnNext = document.getElementById('fc-next');
+            const closeBtn = document.querySelector('.close-modal');
+            let idx = 0;
+
+            function loadCard() {
+                qText.textContent = cards[idx].q;
+                aText.textContent = cards[idx].a;
+                aText.classList.remove('show');
+                btnReveal.style.display = 'block';
+                btnNext.style.display = 'none';
+            }
+
+            btn.addEventListener('click', () => { idx = 0; loadCard(); modal.classList.add('active'); });
+            btnReveal.addEventListener('click', () => { aText.classList.add('show'); btnReveal.style.display = 'none'; btnNext.style.display = 'block'; });
+            btnNext.addEventListener('click', () => { idx = (idx + 1) % cards.length; loadCard(); });
+            closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+            modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+        });
+    </script>
+</body>
+</html>
