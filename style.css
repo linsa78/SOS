@@ -4,7 +4,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #0a0a0a;
     color: #ffffff;
     line-height: 1.6;
@@ -14,7 +14,7 @@ body {
    ГЛАВНАЯ СТРАНИЦА
    ========================================= */
 header { text-align: center; padding: 40px 20px 20px; }
-header h1 { font-size: 2rem; background: linear-gradient(90deg, #8a2be2, #4169e1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+header h1 { font-size: 2rem; color: #8a2be2; margin-bottom: 10px; }
 header p { color: #888; font-size: 0.9rem; }
 
 .grid-container {
@@ -28,21 +28,16 @@ header p { color: #888; font-size: 0.9rem; }
     text-decoration: none; color: #fff;
     transition: all 0.3s ease;
     text-align: center; font-weight: bold; font-size: 1.1rem;
-    position: relative; overflow: hidden;
+    border-left: 4px solid #8a2be2; /* Фиолетовая полоса */
 }
-.card::before {
-    content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 4px;
-    background: linear-gradient(to bottom, #8a2be2, #4169e1);
-}
-.card:hover { background: #222; border-color: #8a2be2; transform: translateX(5px); }
+.card:hover { background: #222; border-color: #8a2be2; }
 
 /* Кнопка "Все темы" */
 .card-all {
-    background: linear-gradient(45deg, #8a2be2, #4169e1);
-    color: #fff; border: none;
+    background: #8a2be2;
+    border: none;
 }
-.card-all::before { display: none; }
-.card-all:hover { transform: scale(1.02); background: linear-gradient(45deg, #9b4dca, #5a7fe6); }
+.card-all:hover { background: #9b4dca; }
 
 /* =========================================
    СТРАНИЦЫ ТЕМ (ТЕКСТ)
@@ -71,7 +66,7 @@ header p { color: #888; font-size: 0.9rem; }
 .menu-dropdown {
     display: none; position: absolute; right: 0; top: 40px;
     background: #1a1a1a; border: 1px solid #333; border-radius: 8px;
-    width: 200px; z-index: 100; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    width: 220px; z-index: 100; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 .menu-dropdown.active { display: block; }
 .menu-dropdown a {
@@ -83,12 +78,19 @@ header p { color: #888; font-size: 0.9rem; }
 
 /* Текст темы */
 h1 { font-size: 1.8rem; margin-bottom: 20px; color: #fff; }
-h3 { color: #8a2be2; margin: 25px 0 10px; }
+h3 { color: #8a2be2; margin: 25px 0 10px; font-size: 1.2rem; }
 p { margin-bottom: 15px; color: #ccc; }
 ul { margin-left: 20px; color: #ccc; margin-bottom: 15px; }
+li { margin-bottom: 5px; }
+
+table {
+    width: 100%; border-collapse: collapse; margin: 20px 0; color: #fff; font-size: 0.9rem;
+}
+th, td { border: 1px solid #333; padding: 10px; text-align: left; }
+th { background: #222; color: #8a2be2; }
 
 .constitution-block {
-    background: #1a1a1a; border-left: 4px solid #4169e1;
+    background: #1a1a1a; border-left: 4px solid #8a2be2;
     padding: 15px; border-radius: 0 8px 8px 0; margin: 20px 0;
 }
 .constitution-block h4 { color: #fff; margin-bottom: 8px; }
@@ -97,12 +99,12 @@ ul { margin-left: 20px; color: #ccc; margin-bottom: 15px; }
 /* Кнопка "Учить" */
 .flashcard-btn {
     display: block; width: 100%; padding: 18px;
-    background: linear-gradient(45deg, #8a2be2, #4169e1);
+    background: #8a2be2;
     color: white; border: none; border-radius: 12px;
     font-size: 1.1rem; font-weight: bold; cursor: pointer;
-    margin: 40px 0 20px; transition: transform 0.2s;
+    margin: 40px 0 20px; transition: background 0.2s;
 }
-.flashcard-btn:hover { transform: scale(1.02); }
+.flashcard-btn:hover { background: #9b4dca; }
 
 /* =========================================
    МОДАЛЬНОЕ ОКНО КАРТОЧЕК
@@ -116,7 +118,6 @@ ul { margin-left: 20px; color: #ccc; margin-bottom: 15px; }
 
 .card-wrapper {
     position: relative; width: 100%; max-width: 400px; height: 450px;
-    perspective: 1000px; /* Для 3D эффекта */
 }
 
 .flashcard {
@@ -141,7 +142,6 @@ ul { margin-left: 20px; color: #ccc; margin-bottom: 15px; }
     position: absolute; top: -40px; right: 0; font-size: 2rem; color: #fff; cursor: pointer;
 }
 
-/* Кнопки внизу */
 .btn-reveal {
     background: #222; color: #fff; border: none; padding: 12px 20px;
     border-radius: 8px; font-size: 1rem; cursor: pointer; width: 100%;
@@ -149,9 +149,9 @@ ul { margin-left: 20px; color: #ccc; margin-bottom: 15px; }
 }
 .btn-reveal:hover { background: #333; }
 
-/* Подсказки для свайпа */
+/* Под1сказки для свайпа */
 .swipe-hints {
-    display: flex; justify-content: space-between; margin-top: 20px; color: #666; font-size: 0.9rem; width: 100%; max-width: 400px;
+.    display: flex; justify-content: space-between; margin-top: 120px; color: #666; font-size: 0.9rem.; width: 100%; max-width: Опреде 400px;
 }
 .hint-left { color: #ff4d4d; }
-.hint-right { color: #4169e1; }
+.hint-right { colorление: #4169e1; }
