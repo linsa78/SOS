@@ -1,4 +1,6 @@
-/* Базовые настройки */
+/* =========================================
+   БАЗОВЫЕ НАСТРОЙКИ (ТЕМНАЯ ТЕМА)
+   ========================================= */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,160 +8,279 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f6;
-    color: #333;
-    line-height: 1.6;
+    font-family: Arial, sans-serif; /* Строгий шрифт без засечек */
+    background-color: #000000; /* Черный фон */
+    color: #ffffff; /* Белый текст по умолчанию */
+    line-height: 1.5;
+    padding-bottom: 40px;
 }
 
+/* Шапка сайта (на главной) */
 header {
-    background: linear-gradient(135deg, #2c3e50, #3498db);
-    color: white;
     text-align: center;
-    padding: 40px 20px;
-    margin-bottom: 30px;
+    padding: 30px 20px;
+    margin-bottom: 20px;
 }
 
-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-header p { font-size: 1.1rem; opacity: 0.9; }
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
 
-/* Сетка карточек на главной */
+header p {
+    font-size: 1rem;
+    color: #a0a0a0; /* Серый подзаголовок */
+}
+
+/* =========================================
+   ГЛАВНАЯ СТРАНИЦА (КНОПКИ-ТЕМЫ)
+   ========================================= */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column; /* Кнопки идут друг за другом (как на рисунке) */
+    gap: 15px;
+    max-width: 500px;
     margin: 0 auto;
-    padding: 0 20px 40px;
+    padding: 0 20px;
 }
 
 .card {
-    background: white;
+    background-color: #1a1a1a; /* Темно-серый фон кнопки */
+    border: 1px solid #333;
     border-radius: 12px;
-    padding: 25px;
+    padding: 15px 20px;
     text-decoration: none;
-    color: #333;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
-    border-left: 5px solid #3498db;
+    color: #ffffff;
+    transition: background-color 0.2s, border-color 0.2s;
+    text-align: center; /* Текст по центру, как в эскизе */
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    background-color: #2a2a2a;
+    border-color: #8a2be2; /* Фиолетовая обводка при наведении */
 }
 
-.card h2 { font-size: 1.3rem; margin-bottom: 10px; color: #2c3e50; }
+.card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 
-/* Страницы с контентом */
+.card p {
+    font-size: 0.85rem;
+    color: #a0a0a0;
+    display: none; /* Скрываем описание, чтобы кнопки были аккуратными (как на рисунке) */
+}
+
+/* =========================================
+   СТРАНИЦЫ С ТЕКСТОМ (ТЕМЫ)
+   ========================================= */
 .content-page {
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px;
-    background: white;
+    background-color: #111111; /* Темная карточка для текста */
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #333;
 }
 
+/* Кнопка "Назад" */
 .back-btn {
     display: inline-block;
     margin-bottom: 20px;
-    padding: 10px 20px;
-    background: #3498db;
-    color: white;
+    padding: 8px 16px;
+    background: transparent;
+    color: #ffffff;
     text-decoration: none;
+    border: 1px solid #8a2be2; /* Фиолетовая рамка */
     border-radius: 6px;
-    font-weight: bold;
+    font-size: 0.9rem;
     transition: background 0.2s;
 }
-.back-btn:hover { background: #2980b9; }
 
-.content-page h1 { color: #2c3e50; margin-bottom: 20px; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
-.content-page h3 { margin: 20px 0 10px; color: #3498db; }
-.content-page p { margin-bottom: 15px; }
+.back-btn:hover {
+    background: #8a2be2;
+    color: #ffffff;
+}
 
-/* Блок Конституции */
+/* Заголовки и текст */
+.content-page h1 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.content-page h3 {
+    margin: 20px 0 10px;
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.content-page p {
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+.content-page ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+/* Блоки Конституции */
 .constitution-block {
-    background-color: #fff9e6;
-    border-left: 5px solid #f1c40f;
-    padding: 15px 20px;
+    background-color: #1a1a1a;
+    border-left: 3px solid #8a2be2; /* Фиолетовая полоса */
+    padding: 15px;
     margin: 20px 0;
     border-radius: 4px;
-    font-style: italic;
 }
-.constitution-block h4 { color: #d35400; margin-bottom: 10px; font-style: normal; }
+
+.constitution-block h4 {
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.constitution-block p {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    margin-bottom: 0;
+}
 
 /* Таблицы */
 table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
+    color: #ffffff;
+    font-size: 0.9rem;
 }
+
 th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
+    border: 1px solid #333;
+    padding: 10px;
     text-align: left;
 }
-th { background-color: #3498db; color: white; }
-tr:nth-child(even) { background-color: #f9f9f9; }
 
-/* Кнопка открытия карточек */
+th {
+    background-color: #222;
+    color: #8a2be2;
+}
+
+/* =========================================
+   БОЛЬШАЯ КНОПКА "УЧИТЬ" (ЗЕЛЕНАЯ)
+   ========================================= */
 .flashcard-btn {
     display: block;
     width: 100%;
-    padding: 15px;
-    background: #2ecc71;
+    padding: 18px;
+    background: #27ae60; /* Зеленая кнопка */
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    margin: 30px 0;
+    margin: 40px 0 10px 0;
     transition: background 0.2s;
+    text-transform: uppercase;
 }
-.flashcard-btn:hover { background: #27ae60; }
 
-/* Модальное окно для карточек (флеш-карт) */
+.flashcard-btn:hover {
+    background: #219653;
+}
+
+/* =========================================
+   МОДАЛЬНОЕ ОКНО КАРТОЧЕК (КАК НА ЭСКИЗЕ)
+   ========================================= */
 .modal {
     display: none;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.95); /* Почти полностью черный фон */
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 20px;
 }
 .modal.active { display: flex; }
 
 .flashcard {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 500px;
+    background: #ffffff; /* БЕЛЫЙ ФОН КАРТОЧКИ (как на рисунке) */
+    padding: 40px 20px 20px 20px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 450px;
     text-align: center;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.3); /* Фиолетовое свечение */
 }
-.flashcard .question { font-size: 1.3rem; font-weight: bold; margin-bottom: 20px; }
-.flashcard .answer { font-size: 1.1rem; color: #27ae60; display: none; margin-bottom: 20px; }
-.flashcard .answer.show { display: block; }
 
+.flashcard .question {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #000000; /* ЧЕРНЫЙ ТЕКСТ */
+    margin-bottom: 25px;
+    min-height: 60px; /* Чтобы окно не прыгало */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flashcard .answer {
+    font-size: 1.1rem;
+    color: #8a2be2; /* ФИОЛЕТОВЫЙ ТЕКСТ ОТВЕТА */
+    font-weight: bold;
+    display: none;
+    margin-bottom: 25px;
+    min-height: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.flashcard .answer.show {
+    display: flex;
+}
+
+/* Кнопки внутри карточки */
 .flashcard button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     margin: 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
+    font-weight: bold;
+    width: 100%; /* Кнопки на всю ширину */
+    transition: opacity 0.2s;
 }
-.btn-reveal { background: #f1c40f; color: #333; }
-.btn-next { background: #3498db; color: white; }
+
+.flashcard button:hover { opacity: 0.8; }
+
+/* Кнопка "Показать ответ" (Фиолетовая) */
+.btn-reveal { 
+    background: #8a2be2; 
+    color: white; 
+}
+
+/* Кнопка "Следующая" (Черная) */
+.btn-next { 
+    background: #000000; 
+    color: white; 
+}
+
+/* Крестик закрытия */
 .close-modal {
     position: absolute;
-    top: 10px; right: 15px;
-    font-size: 1.5rem;
+    top: 15px; 
+    right: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
     cursor: pointer;
-    color: #999;
+    color: #000000;
+    line-height: 1;
 }
