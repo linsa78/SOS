@@ -5,48 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Человек и общество</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Добавляем шрифт Inter для идеального совпадения со стилем приложения -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Локальные стили для главной страницы в стиле твоего референса */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0e12; /* Глубокий черный */
+            /* Мягкое свечение на фоне (как на первом скрине) */
+            background-image: radial-gradient(circle at 50% 0%, rgba(30, 60, 150, 0.2) 0%, transparent 60%);
+            background-attachment: fixed;
+            margin: 0;
+            padding-bottom: 40px;
+        }
+
+        header {
+            padding: 40px 20px 20px;
+        }
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            letter-spacing: -1px;
+        }
+        header p {
+            color: #888;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* СТИЛЬ КАРТОЧЕК КАК НА РЕФЕРЕНСЕ (Синие полупрозрачные) */
+        .card {
+            background: rgba(40, 60, 130, 0.25); /* Полупрозрачный синий */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(80, 120, 255, 0.15); /* Тонкая синяя рамка */
+            border-radius: 24px;
+            padding: 24px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .card:active, .card:hover {
+            background: rgba(40, 60, 130, 0.4);
+            border-color: rgba(80, 120, 255, 0.4);
+            transform: scale(0.98);
+        }
+
+        .card h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+            color: #fff;
+        }
+        .card p {
+            font-size: 0.85rem;
+            color: #a0a5b5; /* Серо-голубой текст */
+            margin: 0;
+        }
+
+        /* Кнопка "Все карточки" (Яркий акцент) */
+        .card-all {
+            background: #4169e1 !important; /* Насыщенный синий */
+            border: none;
+            text-align: center;
+            align-items: center;
+            margin-top: 10px;
+            box-shadow: 0 8px 20px rgba(65, 105, 225, 0.3);
+        }
+        .card-all h2 { color: #fff; font-weight: 800; }
+        .card-all:active { transform: scale(0.96); }
+
+    </style>
 </head>
 <body>
     <header>
-        <h1>соф ну удачи</h1>
-        <p>епта</p>
+        <h1>Человек и общество</h1>
+        <p>Готов начать подготовку?</p>
     </header>
 
     <main class="grid-container">
-        <a href="1-chelovek.html" class="card" style="background: rgba(65, 105, 225, 0.2); border-color: rgba(65, 105, 225, 0.4);">
-            <h2 style="color: #7b9eff;">1. Человек</h2>
+        <!-- Все карточки теперь единого синего стиля -->
+        <a href="1-chelovek.html" class="card">
+            <h2>1. Человек</h2>
             <p>Биосоциальное существо</p>
         </a>
-        <a href="2-mirovozzrenie.html" class="card" style="background: rgba(138, 43, 226, 0.2); border-color: rgba(138, 43, 226, 0.4);">
-            <h2 style="color: #c084fc;">2. Мировоззрение</h2>
+        <a href="2-mirovozzrenie.html" class="card">
+            <h2>2. Мировоззрение</h2>
             <p>Взгляды на мир</p>
         </a>
-        <a href="3-deyatelnost.html" class="card" style="background: rgba(255, 20, 147, 0.2); border-color: rgba(255, 20, 147, 0.4);">
-            <h2 style="color: #ff69b4;">3. Деятельность</h2>
+        <a href="3-deyatelnost.html" class="card">
+            <h2>3. Деятельность</h2>
             <p>Структура и виды</p>
         </a>
-        <a href="4-poznanie.html" class="card" style="background: rgba(0, 191, 255, 0.2); border-color: rgba(0, 191, 255, 0.4);">
-            <h2 style="color: #00bfff;">4. Познание</h2>
+        <a href="4-poznanie.html" class="card">
+            <h2>4. Познание</h2>
             <p>Истина и практика</p>
         </a>
-        <a href="5-obschestvo.html" class="card" style="background: rgba(255, 165, 0, 0.2); border-color: rgba(255, 165, 0, 0.4);">
-            <h2 style="color: #ffb347;">5. Общество</h2>
+        <a href="5-obschestvo.html" class="card">
+            <h2>5. Общество</h2>
             <p>Сферы и институты</p>
         </a>
-        <a href="6-kultura.html" class="card" style="background: rgba(50, 205, 50, 0.2); border-color: rgba(50, 205, 50, 0.4);">
-            <h2 style="color: #7cfc00;">6. Культура</h2>
+        <a href="6-kultura.html" class="card">
+            <h2>6. Культура</h2>
             <p>Наука, религия, мораль</p>
         </a>
-        <a href="7-progress.html" class="card" style="background: rgba(255, 69, 0, 0.2); border-color: rgba(255, 69, 0, 0.4);">
-            <h2 style="color: #ff6347;">7. Прогресс</h2>
+        <a href="7-progress.html" class="card">
+            <h2>7. Прогресс</h2>
             <p>Глобальные проблемы</p>
         </a>
         
+        <!-- Кнопка запуска карточек -->
         <a href="#" class="card card-all" id="start-flashcards">
-            карточки епта
+            <h2>🧠 Учить все карточки</h2>
         </a>
     </main>
 
+    <!-- Модальное окно карточек (логика свайпов остается прежней) -->
     <div id="flashcard-modal" class="modal">
         <span class="close-modal">&times;</span>
         <div class="card-wrapper">
@@ -88,15 +176,13 @@
                   closeBtn = document.querySelector('.close-modal');
             
             let idx = 0;
-            cards.sort(() => Math.random() - 0.5); // Перемешиваем
+            cards.sort(() => Math.random() - 0.5);
 
             function loadCard() { 
                 qText.textContent = cards[idx].q; 
                 aText.textContent = cards[idx].a; 
                 aText.classList.remove('show'); 
                 btnReveal.style.display = 'block'; 
-                
-                // Сброс позиции карточки
                 cardEl.classList.remove('swipe-right', 'swipe-left'); 
                 cardEl.style.transition = 'none'; 
                 cardEl.style.transform = 'translateX(0) rotate(0deg)'; 
@@ -116,19 +202,15 @@
             });
             
             closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-            
-            btnReveal.addEventListener('click', () => { 
-                aText.classList.add('show'); 
-                btnReveal.style.display = 'none'; 
-            });
+            btnReveal.addEventListener('click', () => { aText.classList.add('show'); btnReveal.style.display = 'none'; });
 
-            // --- СВАЙПЫ НА ЧИСТОМ JS ---
+            // СВАЙПЫ
             let startX = 0;
             let currentX = 0;
 
             cardEl.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
-                cardEl.style.transition = 'none'; // Отключаем плавность при перетаскивании
+                cardEl.style.transition = 'none';
             });
 
             cardEl.addEventListener('touchmove', (e) => {
@@ -140,17 +222,14 @@
                 cardEl.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
                 
                 if (currentX > 100) {
-                    // Свайп вправо
                     cardEl.style.transform = `translateX(150%) rotate(15deg)`;
                     cardEl.style.opacity = '0';
                     setTimeout(() => { nextCard(); cardEl.style.opacity = '1'; }, 300);
                 } else if (currentX < -100) {
-                    // Свайп влево
                     cardEl.style.transform = `translateX(-150%) rotate(-15deg)`;
                     cardEl.style.opacity = '0';
                     setTimeout(() => { nextCard(); cardEl.style.opacity = '1'; }, 300);
                 } else {
-                    // Если свайп слабый, возвращаем на место
                     cardEl.style.transform = `translateX(0) rotate(0deg)`;
                 }
                 currentX = 0;
