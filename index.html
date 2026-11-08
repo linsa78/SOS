@@ -5,136 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Человек и общество</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Добавляем шрифт Inter для идеального совпадения со стилем приложения -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        /* Локальные стили для главной страницы в стиле твоего референса */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d0e12; /* Глубокий черный */
-            /* Мягкое свечение на фоне (как на первом скрине) */
-            background-image: radial-gradient(circle at 50% 0%, rgba(30, 60, 150, 0.2) 0%, transparent 60%);
-            background-attachment: fixed;
-            margin: 0;
-            padding-bottom: 40px;
-        }
-
-        header {
-            padding: 40px 20px 20px;
-        }
-        header h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin: 0 0 8px 0;
-            letter-spacing: -1px;
-        }
-        header p {
-            color: #888;
-            font-size: 1rem;
-            margin: 0;
-        }
-
-        .grid-container {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* СТИЛЬ КАРТОЧЕК КАК НА РЕФЕРЕНСЕ (Синие полупрозрачные) */
-        .card {
-            background: rgba(40, 60, 130, 0.25); /* Полупрозрачный синий */
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(80, 120, 255, 0.15); /* Тонкая синяя рамка */
-            border-radius: 24px;
-            padding: 24px;
-            text-decoration: none;
-            color: #fff;
-            transition: all 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .card:active, .card:hover {
-            background: rgba(40, 60, 130, 0.4);
-            border-color: rgba(80, 120, 255, 0.4);
-            transform: scale(0.98);
-        }
-
-        .card h2 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin: 0 0 4px 0;
-            color: #fff;
-        }
-        .card p {
-            font-size: 0.85rem;
-            color: #a0a5b5; /* Серо-голубой текст */
-            margin: 0;
-        }
-
-        /* Кнопка "Все карточки" (Яркий акцент) */
-        .card-all {
-            background: #4169e1 !important; /* Насыщенный синий */
-            border: none;
-            text-align: center;
-            align-items: center;
-            margin-top: 10px;
-            box-shadow: 0 8px 20px rgba(65, 105, 225, 0.3);
-        }
-        .card-all h2 { color: #fff; font-weight: 800; }
-        .card-all:active { transform: scale(0.96); }
-
-    </style>
 </head>
 <body>
-    <header>
-        <h1>Человек и общество</h1>
-        <p>Готов начать подготовку?</p>
-    </header>
-
-    <main class="grid-container">
-        <!-- Все карточки теперь единого синего стиля -->
-        <a href="1-chelovek.html" class="card">
-            <h2>1. Человек</h2>
-            <p>Биосоциальное существо</p>
-        </a>
-        <a href="2-mirovozzrenie.html" class="card">
-            <h2>2. Мировоззрение</h2>
-            <p>Взгляды на мир</p>
-        </a>
-        <a href="3-deyatelnost.html" class="card">
-            <h2>3. Деятельность</h2>
-            <p>Структура и виды</p>
-        </a>
-        <a href="4-poznanie.html" class="card">
-            <h2>4. Познание</h2>
-            <p>Истина и практика</p>
-        </a>
-        <a href="5-obschestvo.html" class="card">
-            <h2>5. Общество</h2>
-            <p>Сферы и институты</p>
-        </a>
-        <a href="6-kultura.html" class="card">
-            <h2>6. Культура</h2>
-            <p>Наука, религия, мораль</p>
-        </a>
-        <a href="7-progress.html" class="card">
-            <h2>7. Прогресс</h2>
-            <p>Глобальные проблемы</p>
-        </a>
+    <div class="content-page">
         
-        <!-- Кнопка запуска карточек -->
-        <a href="#" class="card card-all" id="start-flashcards">
-            <h2>🧠 Учить все карточки</h2>
-        </a>
-    </main>
+        <!-- Верхнее меню как в темах (для красоты добавлена кнопка-таблетка) -->
+        <div class="top-nav">
+            <div class="back-btn" style="cursor: default;">Меню</div>
+            <!-- Три точки для перехода к карточкам -->
+            <div class="menu-container">
+                <button class="menu-btn" onclick="document.querySelector('.menu-dropdown').classList.toggle('active')">⋮</button>
+                <div class="menu-dropdown">
+                    <a href="#" onclick="document.getElementById('start-flashcards').click(); return false;">🧠 Карточки</a>
+                </div>
+            </div>
+        </div>
 
-    <!-- Модальное окно карточек (логика свайпов остается прежней) -->
+        <h1>Человек и общество</h1>
+        <p>Выбери тему для подготовки:</p>
+
+        <!-- Список тем в стиле приложения -->
+        <div class="theme-list">
+            <a href="1-chelovek.html" class="theme-item">
+                <div>
+                    <h3 style="margin: 0 0 5px 0; color: #fff;">1. Человек</h3>
+                    <p style="margin: 0; font-size: 0.9rem; color: #888;">Биосоциальное существо</p>
+                </div>
+                <span style="color: #888; font-size: 1.2rem;">›</span>
+            </a>
+
+            <a href="2-mirovozzrenie.html" class="theme-item">
+                <div>
+                    <h3 style="margin: 0 0 5px 0; color: #fff;">2. Мировоззрение</h3>
+                    <p style="margin: 0; font-size: 0.9rem; color: #888;">Взгляды на мир</p>
+                </div>
+                <span style="color: #888; font-size: 1.2rem;">›</span>
+            </a>
+
+            <a href="3-deyatelnost.html" class="theme-item">
+                <div>
+                    <h3 style="margin: 0 0 5px 0; color: #fff;">3. Деятельность</h3>
+                    <p style="margin: 0; font-size: 0.9rem; color: #888;">Структура и виды</p>
+                </div>
+                <span style="color: #888; font-size: 1.2rem;">›</span>
+            </a>
+
+            <a href="4-poznanie.html" class="theme-item">
+                <div>
+                    <h3 style="margin: 0 0 5px 0; color: #fff;">4. Познание</h3>
+                    <p style="margin: 0; font-size: 0.9rem; color: #888;">Истина и практика</p>
+                </div>
+                <span style="color: #888; font-size: 1.2rem;">›</span>
+            </a>
+
+            <a href="5-obschestvo.html" class="theme-item">
+                <div>
+                    <h3 style="margin: 0 0 5px 0; color: #fff;">5. Общество</h3>
+                    <p style="margin: 0; font-size: 0.9rem; color: #888;">Сферы и институты</p>
+                </div>
+                <span style="color: #888; font-size: 1.2rem;">›</span>
+            </a>
+
+            <a href="6-kultura.html" class="theme-item">
+                <div>
+                    <h3 style="margin: 0 0 5px 0; color: #fff;">6. Культура</h3>
+                    <p style="margin: 0; font-size: 0.9rem; color: #888;">Наука, религия, мораль</p>
+                </div>
+                <span style="color: #888; font-size: 1.2rem;">›</span>
+            </a>
+
+            <a href="7-progress.html" class="theme-item">
+                <div>
+                    <h3 style="margin: 0 0 5px 0; color: #fff;">7. Прогресс</h3>
+                    <p style="margin: 0; font-size: 0.9rem; color: #888;">Глобальные проблемы</p>
+                </div>
+                <span style="color: #888; font-size: 1.2rem;">›</span>
+            </a>
+        </div>
+
+        <!-- Синяя кнопка карточек (как блок Конституции в темах) -->
+        <a href="#" class="card-all" id="start-flashcards" style="margin-top: 30px;">
+            🧠 Учить все карточки
+        </a>
+    </div>
+
+    <!-- Модальное окно карточек -->
     <div id="flashcard-modal" class="modal">
         <span class="close-modal">&times;</span>
         <div class="card-wrapper">
@@ -155,15 +110,7 @@
             { q: "Что такое человек?", a: "Биосоциальное существо, обладающее мышлением, речью." },
             { q: "Статья 2 Конституции РФ?", a: "Человек, его права и свободы являются высшей ценностью." },
             { q: "Типы мировоззрения?", a: "Обыденное, религиозное, философское, научное." },
-            { q: "Структура деятельности?", a: "Субъект → объект → цель → мотив → средства → результат." },
-            { q: "Виды деятельности?", a: "Игра, учение, труд, общение." },
-            { q: "Уровни познания?", a: "Чувственное и рациональное." },
-            { q: "Главный критерий истины?", a: "Практика." },
-            { q: "Сферы общества?", a: "Экономическая, социальная, политическая, духовная." },
-            { q: "Статья 38 Конституции РФ?", a: "Материнство и детство, семья находятся под защитой государства." },
-            { q: "Формы культуры?", a: "Народная, массовая, элитарная." },
-            { q: "Статья 14 Конституции РФ?", a: "Российская Федерация — светское государство." },
-            { q: "Типы обществ?", a: "Традиционное, индустриальное, постиндустриальное." }
+            { q: "Структура деятельности?", a: "Субъект → объект → цель → мотив → средства → результат." }
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -204,30 +151,16 @@
             closeBtn.addEventListener('click', () => modal.classList.remove('active'));
             btnReveal.addEventListener('click', () => { aText.classList.add('show'); btnReveal.style.display = 'none'; });
 
-            // СВАЙПЫ
-            let startX = 0;
-            let currentX = 0;
-
-            cardEl.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                cardEl.style.transition = 'none';
-            });
-
-            cardEl.addEventListener('touchmove', (e) => {
-                currentX = e.touches[0].clientX - startX;
-                cardEl.style.transform = `translateX(${currentX}px) rotate(${currentX * 0.05}deg)`;
-            });
-
+            let startX = 0, currentX = 0;
+            cardEl.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; cardEl.style.transition = 'none'; });
+            cardEl.addEventListener('touchmove', (e) => { currentX = e.touches[0].clientX - startX; cardEl.style.transform = `translateX(${currentX}px) rotate(${currentX * 0.05}deg)`; });
             cardEl.addEventListener('touchend', () => {
                 cardEl.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
-                
                 if (currentX > 100) {
-                    cardEl.style.transform = `translateX(150%) rotate(15deg)`;
-                    cardEl.style.opacity = '0';
+                    cardEl.style.transform = `translateX(150%) rotate(15deg)`; cardEl.style.opacity = '0';
                     setTimeout(() => { nextCard(); cardEl.style.opacity = '1'; }, 300);
                 } else if (currentX < -100) {
-                    cardEl.style.transform = `translateX(-150%) rotate(-15deg)`;
-                    cardEl.style.opacity = '0';
+                    cardEl.style.transform = `translateX(-150%) rotate(-15deg)`; cardEl.style.opacity = '0';
                     setTimeout(() => { nextCard(); cardEl.style.opacity = '1'; }, 300);
                 } else {
                     cardEl.style.transform = `translateX(0) rotate(0deg)`;
