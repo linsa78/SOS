@@ -203,3 +203,66 @@ tr:last-child td { border-bottom: none; }
 }
 .hint-left { color: #ff4d4d; }
 .hint-right { color: #c0ff33; }
+/* =========================================
+   СПИСОК ТЕМ НА ГЛАВНОЙ (Кнопки)
+   ========================================= */
+.theme-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Расстояние между кнопками */
+    margin-top: 25px;
+}
+
+.theme-item {
+    display: flex;
+    justify-content: space-between; /* Текст слева, стрелка справа */
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05); /* Полупрозрачный фон кнопки */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px; /* Скругленные углы */
+    padding: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.theme-item:active {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(0.98); /* Эффект нажатия */
+}
+
+/* Текст внутри кнопки */
+.theme-text h2 {
+    margin: 0 0 5px 0;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.theme-text p {
+    margin: 0;
+    color: #a0a5b5;
+    font-size: 0.9rem;
+}
+
+/* Стрелочка справа */
+.theme-arrow {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 300;
+    opacity: 0.5;
+}
+
+/* Кнопка карточек */
+.card-all {
+    display: block;
+    background: #4169e1; /* Синий */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    margin-top: 30px;
+    box-shadow: 0 10px 25px rgba(65, 105, 225, 0.25);
+}
