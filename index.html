@@ -8,43 +8,121 @@
 </head>
 <body>
     <header>
-        <h1>Привет 👋</h1>
-        <p>Готов начать подготовку?</p>
+        <h1>соф эт пиздец</h1>
+        <p>удачи нах)</p>
     </header>
 
     <main class="grid-container">
-        <a href="1-chelovek.html" class="card">
-            <h2>1. Человек</h2>
+        <!-- Каждая тема в своем цвете -->
+        <a href="1-chelovek.html" class="card" style="background: rgba(65, 105, 225, 0.2); border-color: rgba(65, 105, 225, 0.4);">
+            <h2 style="color: #7b9eff;">1. Человек</h2>
             <p>Биосоциальное существо</p>
         </a>
-        <a href="2-mirovozzrenie.html" class="card">
-            <h2>2. Мировоззрение</h2>
+        <a href="2-mirovozzrenie.html" class="card" style="background: rgba(138, 43, 226, 0.2); border-color: rgba(138, 43, 226, 0.4);">
+            <h2 style="color: #c084fc;">2. Мировоззрение</h2>
             <p>Взгляды на мир</p>
         </a>
-        <a href="3-deyatelnost.html" class="card">
-            <h2>3. Деятельность</h2>
+        <a href="3-deyatelnost.html" class="card" style="background: rgba(255, 20, 147, 0.2); border-color: rgba(255, 20, 147, 0.4);">
+            <h2 style="color: #ff69b4;">3. Деятельность</h2>
             <p>Структура и виды</p>
         </a>
-        <a href="4-poznanie.html" class="card">
-            <h2>4. Познание</h2>
+        <a href="4-poznanie.html" class="card" style="background: rgba(0, 191, 255, 0.2); border-color: rgba(0, 191, 255, 0.4);">
+            <h2 style="color: #00bfff;">4. Познание</h2>
             <p>Истина и практика</p>
         </a>
-        <a href="5-obschestvo.html" class="card">
-            <h2>5. Общество</h2>
+        <a href="5-obschestvo.html" class="card" style="background: rgba(255, 165, 0, 0.2); border-color: rgba(255, 165, 0, 0.4);">
+            <h2 style="color: #ffb347;">5. Общество</h2>
             <p>Сферы и институты</p>
         </a>
-        <a href="6-kultura.html" class="card">
-            <h2>6. Культура</h2>
+        <a href="6-kultura.html" class="card" style="background: rgba(50, 205, 50, 0.2); border-color: rgba(50, 205, 50, 0.4);">
+            <h2 style="color: #7cfc00;">6. Культура</h2>
             <p>Наука, религия, мораль</p>
         </a>
-        <a href="7-progress.html" class="card">
-            <h2>7. Прогресс</h2>
+        <a href="7-progress.html" class="card" style="background: rgba(255, 69, 0, 0.2); border-color: rgba(255, 69, 0, 0.4);">
+            <h2 style="color: #ff6347;">7. Прогресс</h2>
             <p>Глобальные проблемы</p>
         </a>
         
-        <a href="all-cards.html" class="card card-all">
-            🔥 все карточки
+        <!-- Карточки теперь только здесь -->
+        <a href="#" class="card card-all" id="start-flashcards">
+            🧠 Учить все карточки
         </a>
     </main>
+
+    <!-- Модальное окно карточек (ТЕПЕРЬ ТОЛЬКО НА ГЛАВНОЙ) -->
+    <div id="flashcard-modal" class="modal">
+        <span class="close-modal">&times;</span>
+        <div class="card-wrapper">
+            <div id="flashcard" class="flashcard">
+                <div id="fc-question" class="question"></div>
+                <div id="fc-answer" class="answer"></div>
+                <button id="fc-reveal" class="btn-reveal">Показать ответ</button>
+            </div>
+        </div>
+        <div class="swipe-hints">
+            <span class="hint-left">← Не верно</span>
+            <span class="hint-right">Верно →</span>
+        </div>
+    </div>
+
+    <script>
+        // Собираем ВСЕ вопросы со всех тем в один большой список
+        const cards = [
+            { q: "Что такое человек?", a: "Биосоциальное существо, обладающее мышлением, речью." },
+            { q: "Статья 2 Конституции РФ?", a: "Человек, его права и свободы являются высшей ценностью." },
+            { q: "Типы мировоззрения?", a: "Обыденное, религиозное, философское, научное." },
+            { q: "Структура деятельности?", a: "Субъект → объект → цель → мотив → средства → результат." },
+            { q: "Виды деятельности?", a: "Игра, учение, труд, общение." },
+            { q: "Уровни познания?", a: "Чувственное и рациональное." },
+            { q: "Главный критерий истины?", a: "Практика." },
+            { q: "Сферы общества?", a: "Экономическая, социальная, политическая, духовная." },
+            { q: "Статья 38 Конституции РФ?", a: "Материнство и детство, семья находятся под защитой государства." },
+            { q: "Формы культуры?", a: "Народная, массовая, элитарная." },
+            { q: "Статья 14 Конституции РФ?", a: "Российская Федерация — светское государство." },
+            { q: "Типы обществ?", a: "Традиционное, индустриальное, постиндустриальное." }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('start-flashcards'), 
+                  modal = document.getElementById('flashcard-modal'), 
+                  cardEl = document.getElementById('flashcard'), 
+                  qText = document.getElementById('fc-question'), 
+                  aText = document.getElementById('fc-answer'), 
+                  btnReveal = document.getElementById('fc-reveal'), 
+                  closeBtn = document.querySelector('.close-modal');
+            let idx = 0;
+            
+            // Перемешиваем карточки (чтобы было интереснее)
+            cards.sort(() => Math.random() - 0.5);
+
+            function loadCard() { 
+                qText.textContent = cards[idx].q; 
+                aText.textContent = cards[idx].a; 
+                aText.classList.remove('show'); 
+                btnReveal.style.display = 'block'; 
+                cardEl.classList.remove('swipe-right', 'swipe-left'); 
+                cardEl.style.transition = 'none'; 
+                cardEl.style.transform = 'translateX(0) rotate(0deg)'; 
+                setTimeout(() => cardEl.style.transition = 'transform 0.3s ease, opacity 0.3s ease', 10); 
+            }
+            function nextCard() { idx = (idx + 1) % cards.length; loadCard(); }
+            
+            // Запрещаем переход по ссылке, открываем модалку
+            btn.addEventListener('click', (e) => { 
+                e.preventDefault(); 
+                idx = 0; 
+                loadCard(); 
+                modal.classList.add('active'); 
+            });
+            
+            closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+            btnReveal.addEventListener('click', () => { aText.classList.add('show'); btnReveal.style.display = 'none'; });
+            
+            const hammer = new Hammer(cardEl);
+            hammer.on('swiperight', () => { cardEl.classList.add('swipe-right'); setTimeout(nextCard, 300); });
+            hammer.on('swipeleft', () => { cardEl.classList.add('swipe-left'); setTimeout(nextCard, 300); });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 </body>
 </html>
