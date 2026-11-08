@@ -3,68 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2. Мировоззрение — Человек и общество</title>
+    <title>2. Мировоззрение</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="content-page">
-        <a href="index.html" class="back-btn">← На главную</a>
+        <div class="top-nav">
+            <a href="index.html" class="back-btn">← На главную</a>
+            <div class="menu-container">
+                <button class="menu-btn" onclick="document.querySelector('.menu-dropdown').classList.toggle('active')">⋮</button>
+                <div class="menu-dropdown">
+                    <a href="index.html">🏠 На главную</a>
+                    <a href="1-chelovek.html">← 1. Человек</a>
+                    <a href="3-deyatelnost.html">3. Деятельность →</a>
+                </div>
+            </div>
+        </div>
+
         <h1>2. Мировоззрение</h1>
         
         <h3>2.1. Понятие</h3>
         <p><strong>Мировоззрение</strong> — система взглядов человека на мир и своё место в нём.</p>
-        <p><strong>Типы:</strong> обыденное, религиозное, философское, научное.</p>
+        <p><strong>Типы:</strong> обыденное (житейское), религиозное, философское, научное.</p>
+        <p><strong>Структура:</strong> знания, ценности, идеалы, убеждения, принципы, нормы.</p>
 
         <div class="constitution-block">
             <h4>Статья 13 Конституции РФ</h4>
             <p>1. В Российской Федерации признается идеологическое многообразие.<br>
-            2. Никакая идеология не может устанавливаться в качестве государственной или обязательной.</p>
+            2. Никакая идеология не может устанавливаться в качестве государственной или обязательной.<br>
+            3. В Российской Федерации признаются политическое многообразие, многопартийность.<br>
+            4. Общественные объединения равны перед законом.<br>
+            5. Запрещается создание и деятельность общественных объединений, цели или действия которых направлены на насильственное изменение основ конституционного строя и нарушение целостности Российской Федерации, подрыв безопасности государства, создание вооруженных формирований, разжигание социальной, расовой, национальной и религиозной розни.</p>
         </div>
 
-        <button id="start-flashcards" class="flashcard-btn">🧠 Учить карточками</button>
-    </div>
-
-    <div id="flashcard-modal" class="modal">
-        <div class="flashcard">
-            <span class="close-modal">&times;</span>
-            <div id="fc-question" class="question"></div>
-            <div id="fc-answer" class="answer"></div>
-            <button id="fc-reveal" class="btn-reveal">Показать ответ</button>
-            <button id="fc-next" class="btn-next">Следующая →</button>
+        <div class="constitution-block">
+            <h4>Статья 29 Конституции РФ</h4>
+            <p>1. Каждому гарантируется свобода мысли и слова.<br>
+            2. Не допускаются пропаганда или агитация, возбуждающие социальную, расовую, национальную или религиозную ненависть и вражду. Запрещается пропаганда социального, расового, национального, религиозного или языкового превосходства.<br>
+            3. Никто не может быть принужден к выражению своих мнений и убеждений или отказу от них.<br>
+            4. Каждый имеет право свободно искать, получать, передавать, производить и распространять информацию любым законным способом. Перечень сведений, составляющих государственную тайну, определяется федеральным законом.<br>
+            5. Гарантируется свобода массовой информации. Цензура запрещается.</p>
         </div>
     </div>
-
-    <script>
-        const cards = [
-            { q: "Что такое мировоззрение?", a: "Система взглядов человека на мир и своё место в нём." },
-            { q: "Типы мировоззрения?", a: "Обыденное, религиозное, философское, научное." },
-            { q: "Статья 13 Конституции РФ?", a: "Признается идеологическое многообразие. Никакая идеология не может быть государственной." }
-        ];
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('start-flashcards');
-            const modal = document.getElementById('flashcard-modal');
-            const qText = document.getElementById('fc-question');
-            const aText = document.getElementById('fc-answer');
-            const btnReveal = document.getElementById('fc-reveal');
-            const btnNext = document.getElementById('fc-next');
-            const closeBtn = document.querySelector('.close-modal');
-            let idx = 0;
-
-            function loadCard() {
-                qText.textContent = cards[idx].q;
-                aText.textContent = cards[idx].a;
-                aText.classList.remove('show');
-                btnReveal.style.display = 'block';
-                btnNext.style.display = 'none';
-            }
-
-            btn.addEventListener('click', () => { idx = 0; loadCard(); modal.classList.add('active'); });
-            btnReveal.addEventListener('click', () => { aText.classList.add('show'); btnReveal.style.display = 'none'; btnNext.style.display = 'block'; });
-            btnNext.addEventListener('click', () => { idx = (idx + 1) % cards.length; loadCard(); });
-            closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-            modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
-        });
-    </script>
 </body>
 </html>
